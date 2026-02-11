@@ -2,23 +2,39 @@
 <html lang="nl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Video Achtergrond</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Foto Chaos</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: black;
+    }
+
+    .chaos-img {
+      position: absolute;
+      width: 150px;
+      pointer-events: none;
+    }
+  </style>
 </head>
 <body>
-  <div class="video-background">
-    <video autoplay muted loop>
-      <source src="epstien.mp4" type="video/mp4">
-      Je browser ondersteunt geen video.
-    </video>
-  </div>
 
-  <div class="content">
-    <h1></h1>
-    <p></p>
-  </div>
+<script>
+  const aantalFotos = 30; // 👈 HIER bepaal je het aantal
+  const afbeelding = "foto.jpg"; // jouw afbeelding
+
+  for (let i = 0; i < aantalFotos; i++) {
+    const img = document.createElement("img");
+    img.src = afbeelding;
+    img.className = "chaos-img";
+
+    img.style.top = Math.random() * window.innerHeight + "px";
+    img.style.left = Math.random() * window.innerWidth + "px";
+    img.style.transform = `rotate(${Math.random() * 360}deg)`;
+
+    document.body.appendChild(img);
+  }
+</script>
+
 </body>
 </html>
-
-
