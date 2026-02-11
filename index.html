@@ -23,7 +23,7 @@
 <body>
 
 <script>
-  const aantalFotos = 30; // 👈 Hier kies je het aantal
+  const aantalFotos = 10000; // 👈 Hier kies je het aantal
   const afbeeldingen = ["foto1.jpg", "foto2.jpg", "foto3.jpg"]; // meerdere afbeeldingen
 
   function spawnFoto() {
@@ -45,9 +45,10 @@
 
   // Spawn alle foto's met een klein interval zodat het animatie-effect ontstaat
   for (let i = 0; i < aantalFotos; i++) {
-    setTimeout(spawnFoto, i * 100); // elke 100ms een nieuwe foto
+    setTimeout(spawnFoto, i * 1); // elke 100ms een nieuwe foto
   }
 </script>
 
 </body>
 </html>
+
