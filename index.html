@@ -2,7 +2,7 @@
 <html lang="nl">
 <head>
   <meta charset="UTF-8">
-  <title>Foto Chaos</title>
+  <title>Foto Animatie</title>
   <style>
     body {
       margin: 0;
@@ -12,27 +12,40 @@
 
     .chaos-img {
       position: absolute;
-      width: 150px;
+      width: 100px;
       pointer-events: none;
+      opacity: 0;
+      transform: scale(0);
+      transition: all 0.5s ease;
     }
   </style>
 </head>
 <body>
 
 <script>
-  const aantalFotos = 30; // 👈 HIER bepaal je het aantal
-  const afbeelding = "foto.jpg"; // jouw afbeelding
+  const aantalFotos = 30; // 👈 Hier kies je het aantal
+  const afbeeldingen = ["foto1.jpg", "foto2.jpg", "foto3.jpg"]; // meerdere afbeeldingen
 
-  for (let i = 0; i < aantalFotos; i++) {
+  function spawnFoto() {
     const img = document.createElement("img");
-    img.src = afbeelding;
+    img.src = afbeeldingen[Math.floor(Math.random() * afbeeldingen.length)];
     img.className = "chaos-img";
 
     img.style.top = Math.random() * window.innerHeight + "px";
     img.style.left = Math.random() * window.innerWidth + "px";
-    img.style.transform = `rotate(${Math.random() * 360}deg)`;
 
     document.body.appendChild(img);
+
+    // Animatie: fade in + scale
+    setTimeout(() => {
+      img.style.opacity = 1;
+      img.style.transform = `scale(1) rotate(${Math.random() * 360}deg)`;
+    }, 50);
+  }
+
+  // Spawn alle foto's met een klein interval zodat het animatie-effect ontstaat
+  for (let i = 0; i < aantalFotos; i++) {
+    setTimeout(spawnFoto, i * 100); // elke 100ms een nieuwe foto
   }
 </script>
 
